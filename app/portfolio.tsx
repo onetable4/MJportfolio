@@ -102,8 +102,8 @@ export function Portfolio() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="한지호 포트폴리오 홈">
-          JH<span>®</span>
+        <a className="wordmark" href="#top" aria-label="한코비 포트폴리오 홈">
+          KH<span>®</span>
         </a>
         <nav aria-label="주요 메뉴">
           <a href="#work">Work</a>
@@ -115,7 +115,7 @@ export function Portfolio() {
       <section className="hero" id="top" aria-labelledby="hero-title">
         <p className="eyebrow">Photographer · Seoul / Everywhere</p>
         <h1 id="hero-title">
-          <span>JIHO</span>
+          <span>KOBE</span>
           <span className="outline">HAN</span>
         </h1>
         <div className="hero-bottom">
@@ -167,7 +167,7 @@ export function Portfolio() {
           <h2 id="about-title">관찰하고,<br />기다리고,<br /><em>기억합니다.</em></h2>
           <div>
             <p>
-              서울을 기반으로 활동하는 포토그래퍼 한지호입니다. 인물과 공간이 서로의
+              서울을 기반으로 활동하는 포토그래퍼 한코비입니다. 인물과 공간이 서로의
               표정을 바꾸는 순간에 관심을 두고, 절제된 색과 자연광으로 오래 남는 장면을 만듭니다.
             </p>
             <p className="services">Portrait · Editorial · Travel · Architecture</p>
@@ -177,7 +177,7 @@ export function Portfolio() {
 
       <footer id="contact">
         <p className="section-kicker">03 / Contact</p>
-        <a className="contact-link" href="mailto:hello@jihohan.photo">
+        <a className="contact-link" href="mailto:hello@kobehan.photo">
           Let&apos;s make<br />something <em>lasting.</em>
           <span aria-hidden="true">↗</span>
         </a>
@@ -185,9 +185,9 @@ export function Portfolio() {
           <p>Seoul, Korea<br />Available worldwide</p>
           <div>
             <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a>
-            <a href="mailto:hello@jihohan.photo">Email ↗</a>
+            <a href="mailto:hello@kobehan.photo">Email ↗</a>
           </div>
-          <p>© {new Date().getFullYear()} Jiho Han</p>
+          <p>© {new Date().getFullYear()} Kobe Han</p>
         </div>
       </footer>
 

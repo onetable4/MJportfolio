@@ -7,9 +7,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "Jiho Han — Photographer";
-  const description = "서울을 기반으로 활동하는 포토그래퍼 한지호의 사진 포트폴리오.";
-  const socialImage = new URL("/og.png", baseUrl).toString();
+  const title = "Kobe Han — Photographer";
+  const description = "서울을 기반으로 활동하는 포토그래퍼 한코비의 사진 포트폴리오.";
+  const socialImage = new URL("/og-kobe.png", baseUrl).toString();
 
   return {
     metadataBase: baseUrl,
@@ -19,7 +19,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title,
       description,
       type: "website",
-      images: [{ url: socialImage, width: 1536, height: 896, alt: "Jiho Han Photographer" }],
+      images: [{ url: socialImage, width: 1536, height: 896, alt: "Kobe Han Photographer" }],
     },
     twitter: {
       card: "summary_large_image",
