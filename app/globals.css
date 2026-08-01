@@ -244,6 +244,9 @@ nav a:hover::after,
 }
 
 .image-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 750ms cubic-bezier(0.2, 0.75, 0.25, 1), filter 500ms;
 }
@@ -501,12 +504,17 @@ footer .section-kicker {
   .hero-bottom { align-items: flex-start; flex-direction: column; gap: 28px; }
   .hero-bottom p { max-width: 20rem; font-size: 0.9rem; }
   .scroll-cue { align-self: flex-end; }
-  .work { padding: 7rem 20px 8rem; }
-  .section-heading { margin-bottom: 6rem; grid-template-columns: 1fr; gap: 34px; }
+  .work { padding: 7rem 0 8rem; }
+  .section-heading { margin-bottom: 6rem; padding: 0 24px; grid-template-columns: 1fr; gap: 34px; }
   .section-heading h2 { font-size: clamp(2.6rem, 12vw, 4rem); }
-  .gallery { gap: 5rem; grid-template-columns: 1fr; }
+  .gallery { gap: 6.5rem; grid-template-columns: 1fr; }
   .work-card,
   .work-card.wide { grid-column: auto; }
+  .work-card { width: 76%; }
+  .work-card:nth-child(odd) { justify-self: start; }
+  .work-card:nth-child(even) { justify-self: end; }
+  .work-card.landscape { width: 86%; }
+  .work-card.wide { width: 90%; }
   .work-card:nth-child(even):not(.wide) { margin-top: 0; }
   .work-card.wide .image-frame { aspect-ratio: 4 / 3; }
   .caption { padding-top: 12px; font-size: 0.66rem; }
