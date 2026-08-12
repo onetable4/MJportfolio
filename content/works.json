@@ -1,76 +1,85 @@
 {
   "works": [
     {
-    "title": "Between Red Rocks",
-    "location": "Nevada",
-    "year": 2024,
-    "image": "/images/01-stillness.jpg",
-    "alt": "붉은 바위 사이에 선 인물",
-    "layout": "portrait",
-    "published": true
+      "title": "Between Red Rocks",
+      "location": "Nevada",
+      "year": 2024,
+      "image": "/images/01-stillness.jpg",
+      "alt": "붉은 바위 사이에 선 인물",
+      "layout": "portrait",
+      "published": true
     },
     {
-    "title": "Distant Blue",
-    "location": "Blue Ridge",
-    "year": 2023,
-    "image": "/images/02-dunes.jpg",
-    "alt": "푸른 산맥과 모래 언덕",
-    "layout": "portrait",
-    "published": true
+      "title": "Distant Blue",
+      "location": "Blue Ridge",
+      "year": 2023,
+      "image": "/images/02-dunes.jpg",
+      "alt": "푸른 산맥과 모래 언덕",
+      "layout": "portrait",
+      "published": true
     },
     {
-    "title": "After Midnight",
-    "location": "Melbourne",
-    "year": 2024,
-    "image": "/images/03-city.jpg",
-    "alt": "한밤의 도시 풍경",
-    "layout": "wide",
-    "published": true
+      "title": "After Midnight",
+      "location": "Melbourne",
+      "year": 2024,
+      "image": "/images/03-city.jpg",
+      "alt": "한밤의 도시 풍경",
+      "layout": "wide",
+      "published": true
     },
     {
-    "title": "The Space Between",
-    "location": "Beijing",
-    "year": 2023,
-    "image": "/images/04-geometry.jpg",
-    "alt": "기하학적 건축 공간",
-    "layout": "portrait",
-    "published": true
+      "title": "The Space Between",
+      "location": "Beijing",
+      "year": 2023,
+      "image": "/images/04-geometry.jpg",
+      "alt": "기하학적 건축 공간",
+      "layout": "portrait",
+      "published": true
     },
     {
-    "title": "Summer, Almost",
-    "location": "Editorial",
-    "year": 2024,
-    "image": "/images/05-portrait.jpg",
-    "alt": "여름빛 속 인물 사진",
-    "layout": "portrait",
-    "published": true
+      "title": "Summer, Almost",
+      "location": "Editorial",
+      "year": 2024,
+      "image": "/images/05-portrait.jpg",
+      "alt": "여름빛 속 인물 사진",
+      "layout": "portrait",
+      "published": true
     },
     {
-    "title": "North of Here",
-    "location": "Alaska",
-    "year": 2022,
-    "image": "/images/06-mountain.jpg",
-    "alt": "알래스카의 설산 풍경",
-    "layout": "wide",
-    "published": true
+      "title": "North of Here",
+      "location": "Alaska",
+      "year": 2022,
+      "image": "/images/06-mountain.jpg",
+      "alt": "알래스카의 설산 풍경",
+      "layout": "wide",
+      "published": true
     },
     {
-    "title": "White Volume",
-    "location": "Cleveland",
-    "year": 2023,
-    "image": "/images/07-house.jpg",
-    "alt": "흰색 건축물의 외관",
-    "layout": "landscape",
-    "published": true
+      "title": "White Volume",
+      "location": "Cleveland",
+      "year": 2023,
+      "image": "/images/07-house.jpg",
+      "alt": "흰색 건축물의 외관",
+      "layout": "landscape",
+      "published": true
     },
     {
-    "title": "In Good Light",
-    "location": "Portrait",
-    "year": 2024,
-    "image": "/images/08-portrait.jpg",
-    "alt": "부드러운 자연광 속 인물",
-    "layout": "landscape",
-    "published": true
+      "title": "In Good Light",
+      "location": "Portrait",
+      "year": 2024,
+      "image": "/images/08-portrait.jpg",
+      "alt": "부드러운 자연광 속 인물",
+      "layout": "landscape",
+      "published": true
+    },
+    {
+      "title": "The Tower",
+      "location": "Tokyo",
+      "year": 2026,
+      "image": "/images/img5782.jpg",
+      "alt": "The Tokyo Tower",
+      "layout": "portrait",
+      "published": true
     }
   ]
 }
