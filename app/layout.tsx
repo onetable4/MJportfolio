@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import site from "../content/site.json";
 import "./globals.css";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -7,8 +8,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const baseUrl = new URL(`${protocol}://${host}`);
-  const title = "Kobe Han — Photographer";
-  const description = "서울을 기반으로 활동하는 포토그래퍼 한코비의 사진 포트폴리오.";
+  const title = `${site.name} — Photographer`;
+  const description = site.metaDescription;
   const socialImage = new URL("/og-kobe.png", baseUrl).toString();
 
   return {

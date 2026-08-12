@@ -2,73 +2,17 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import site from "../content/site.json";
+import workData from "../content/works.json";
 
-const works = [
-  {
-    src: "/images/01-stillness.jpg",
-    title: "Between Red Rocks",
-    meta: "Nevada · 2024",
-    shape: "portrait",
-    width: 1800,
-    height: 2700,
-  },
-  {
-    src: "/images/02-dunes.jpg",
-    title: "Distant Blue",
-    meta: "Blue Ridge · 2023",
-    shape: "portrait",
-    width: 1800,
-    height: 2700,
-  },
-  {
-    src: "/images/03-city.jpg",
-    title: "After Midnight",
-    meta: "Melbourne · 2024",
-    shape: "landscape wide",
-    width: 1800,
-    height: 1200,
-  },
-  {
-    src: "/images/04-geometry.jpg",
-    title: "The Space Between",
-    meta: "Beijing · 2023",
-    shape: "portrait",
-    width: 1800,
-    height: 2297,
-  },
-  {
-    src: "/images/05-portrait.jpg",
-    title: "Summer, Almost",
-    meta: "Editorial · 2024",
-    shape: "portrait",
-    width: 1800,
-    height: 2700,
-  },
-  {
-    src: "/images/06-mountain.jpg",
-    title: "North of Here",
-    meta: "Alaska · 2022",
-    shape: "landscape wide",
-    width: 1800,
-    height: 1200,
-  },
-  {
-    src: "/images/07-house.jpg",
-    title: "White Volume",
-    meta: "Cleveland · 2023",
-    shape: "landscape",
-    width: 1800,
-    height: 1200,
-  },
-  {
-    src: "/images/08-portrait.jpg",
-    title: "In Good Light",
-    meta: "Portrait · 2024",
-    shape: "landscape",
-    width: 1800,
-    height: 1232,
-  },
-];
+const works = workData
+  .filter((work) => work.published)
+  .map((work) => ({
+    ...work,
+    src: work.image,
+    meta: `${work.location} · ${work.year}`,
+    shape: work.layout === "wide" ? "landscape wide" : work.layout,
+  }));
 
 export function Portfolio() {
   const [active, setActive] = useState<number | null>(null);
@@ -102,8 +46,8 @@ export function Portfolio() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="한코비 포트폴리오 홈">
-          KH<span>®</span>
+        <a className="wordmark" href="#top" aria-label={`${site.name} 포트폴리오 홈`}>
+          {site.wordmark}<span>®</span>
         </a>
         <nav aria-label="주요 메뉴">
           <a href="#work">Work</a>
@@ -113,13 +57,13 @@ export function Portfolio() {
       </header>
 
       <section className="hero" id="top" aria-labelledby="hero-title">
-        <p className="eyebrow">Photographer · Seoul / Everywhere</p>
+        <p className="eyebrow">{site.eyebrow}</p>
         <h1 id="hero-title">
-          <span>KOBE</span>
-          <span className="outline">HAN</span>
+          <span>{site.heroTitleLine1}</span>
+          <span className="outline">{site.heroTitleLine2}</span>
         </h1>
         <div className="hero-bottom">
-          <p>사람과 장소 사이에 잠시 머무는 빛을 기록합니다.</p>
+          <p>{site.heroIntro}</p>
           <a href="#work" className="scroll-cue">
             Selected works <span aria-hidden="true">↓</span>
           </a>
@@ -129,7 +73,7 @@ export function Portfolio() {
       <section className="work" id="work" aria-labelledby="work-title">
         <div className="section-heading">
           <p>01 / Selected work</p>
-          <h2 id="work-title">빛, 공간, 그리고<br />그 사이의 사람들.</h2>
+          <h2 id="work-title">{site.workHeadingLine1}<br />{site.workHeadingLine2}</h2>
         </div>
 
         <div className="gallery">
@@ -144,7 +88,7 @@ export function Portfolio() {
               <span className="image-frame">
                 <Image
                   src={work.src}
-                  alt={`${work.title}, ${work.meta}`}
+                  alt={work.alt}
                   fill
                   unoptimized
                   sizes={work.shape.includes("wide") ? "(max-width: 700px) 100vw, 92vw" : "(max-width: 700px) 100vw, 45vw"}
@@ -164,30 +108,31 @@ export function Portfolio() {
       <section className="about" id="about" aria-labelledby="about-title">
         <div className="section-kicker">02 / About</div>
         <div className="about-copy">
-          <h2 id="about-title">관찰하고,<br />기다리고,<br /><em>기억합니다.</em></h2>
+          <h2 id="about-title">
+            {site.aboutHeadingLine1}<br />
+            {site.aboutHeadingLine2}<br />
+            <em>{site.aboutHeadingLine3}</em>
+          </h2>
           <div>
-            <p>
-              서울을 기반으로 활동하는 포토그래퍼 한코비입니다. 인물과 공간이 서로의
-              표정을 바꾸는 순간에 관심을 두고, 절제된 색과 자연광으로 오래 남는 장면을 만듭니다.
-            </p>
-            <p className="services">Portrait · Editorial · Travel · Architecture</p>
+            <p>{site.aboutDescription}</p>
+            <p className="services">{site.services}</p>
           </div>
         </div>
       </section>
 
       <footer id="contact">
         <p className="section-kicker">03 / Contact</p>
-        <a className="contact-link" href="mailto:hello@kobehan.photo">
-          Let&apos;s make<br />something <em>lasting.</em>
+        <a className="contact-link" href={`mailto:${site.email}`}>
+          {site.contactLine1}<br /><em>{site.contactLine2}</em>
           <span aria-hidden="true">↗</span>
         </a>
         <div className="footer-meta">
-          <p>Seoul, Korea<br />Available worldwide</p>
+          <p>{site.location}<br />{site.availability}</p>
           <div>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a>
-            <a href="mailto:hello@kobehan.photo">Email ↗</a>
+            <a href={site.instagram} target="_blank" rel="noreferrer">Instagram ↗</a>
+            <a href={`mailto:${site.email}`}>Email ↗</a>
           </div>
-          <p>© {new Date().getFullYear()} Kobe Han</p>
+          <p>© {new Date().getFullYear()} {site.name}</p>
         </div>
       </footer>
 
@@ -210,7 +155,7 @@ export function Portfolio() {
           <figure>
             <Image
               src={works[active].src}
-              alt={`${works[active].title}, ${works[active].meta}`}
+              alt={works[active].alt}
               width={works[active].width}
               height={works[active].height}
               unoptimized

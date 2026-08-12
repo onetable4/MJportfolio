@@ -1,0 +1,164 @@
+media:
+  - name: portfolio_images
+    label: 작품 이미지
+    input: public/images
+    output: /images
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+
+content:
+  - name: works
+    label: 작품 관리
+    type: file
+    path: content/works.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: 작품명
+        type: string
+        required: true
+      - name: location
+        label: 장소 또는 분류
+        type: string
+        required: true
+      - name: year
+        label: 연도
+        type: number
+        required: true
+      - name: image
+        label: 작품 이미지
+        type: image
+        required: true
+        options:
+          media: portfolio_images
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+      - name: alt
+        label: 이미지 설명
+        type: string
+        required: true
+        description: 화면 낭독기와 검색엔진을 위한 짧고 구체적인 사진 설명입니다.
+      - name: layout
+        label: 표시 비율
+        type: select
+        required: true
+        options:
+          values:
+            - name: portrait
+              label: 세로형
+            - name: landscape
+              label: 가로형
+            - name: wide
+              label: 전체 폭
+      - name: width
+        label: 원본 너비(px)
+        type: number
+        required: true
+        description: 업로드한 이미지의 실제 픽셀 너비입니다.
+      - name: height
+        label: 원본 높이(px)
+        type: number
+        required: true
+        description: 업로드한 이미지의 실제 픽셀 높이입니다.
+      - name: published
+        label: 사이트에 공개
+        type: boolean
+        required: true
+
+  - name: site
+    label: 프로필 및 연락처
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: name
+        label: 사진가 이름
+        type: string
+        required: true
+      - name: wordmark
+        label: 로고 이니셜
+        type: string
+        required: true
+      - name: eyebrow
+        label: 상단 직함 및 활동 지역
+        type: string
+        required: true
+      - name: heroTitleLine1
+        label: 메인 제목 첫 줄
+        type: string
+        required: true
+      - name: heroTitleLine2
+        label: 메인 제목 둘째 줄
+        type: string
+        required: true
+      - name: heroIntro
+        label: 메인 소개 한 줄
+        type: text
+        required: true
+      - name: workHeadingLine1
+        label: 작품 영역 제목 첫 줄
+        type: string
+        required: true
+      - name: workHeadingLine2
+        label: 작품 영역 제목 둘째 줄
+        type: string
+        required: true
+      - name: aboutHeadingLine1
+        label: 소개 제목 첫 줄
+        type: string
+        required: true
+      - name: aboutHeadingLine2
+        label: 소개 제목 둘째 줄
+        type: string
+        required: true
+      - name: aboutHeadingLine3
+        label: 소개 제목 강조 줄
+        type: string
+        required: true
+      - name: aboutDescription
+        label: 상세 소개
+        type: text
+        required: true
+      - name: services
+        label: 촬영 분야
+        type: string
+        required: true
+      - name: contactLine1
+        label: 연락 문구 첫 줄
+        type: string
+        required: true
+      - name: contactLine2
+        label: 연락 문구 강조 줄
+        type: string
+        required: true
+      - name: location
+        label: 활동 지역
+        type: string
+        required: true
+      - name: availability
+        label: 활동 가능 범위
+        type: string
+        required: true
+      - name: email
+        label: 이메일
+        type: string
+        required: true
+      - name: instagram
+        label: Instagram 주소
+        type: string
+        required: true
+      - name: metaDescription
+        label: 검색 결과 설명
+        type: text
+        required: true
+        description: 검색엔진과 링크 미리보기에 사용되는 80~160자 설명입니다.
+
+settings:
+  hide: true
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      update: "content: update {name} via Pages CMS"

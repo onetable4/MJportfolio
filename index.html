@@ -15,7 +15,7 @@
   <body>
     <main>
       <header class="site-header">
-        <a class="wordmark" href="#top" aria-label="한코비 포트폴리오 홈">KH<span>®</span></a>
+        <a class="wordmark" id="wordmark" href="#top" aria-label="Kobe Han 포트폴리오 홈">KH<span>®</span></a>
         <nav aria-label="주요 메뉴">
           <a href="#work">Work</a>
           <a href="#about">About</a>
@@ -24,10 +24,10 @@
       </header>
 
       <section class="hero" id="top" aria-labelledby="hero-title">
-        <p class="eyebrow">Photographer · Seoul / Everywhere</p>
-        <h1 id="hero-title"><span>KOBE</span><span class="outline">HAN</span></h1>
+        <p class="eyebrow" id="eyebrow">Photographer · Seoul / Everywhere</p>
+        <h1 id="hero-title"><span id="hero-title-line-1">KOBE</span><span class="outline" id="hero-title-line-2">HAN</span></h1>
         <div class="hero-bottom">
-          <p>사람과 장소 사이에 잠시 머무는 빛을 기록합니다.</p>
+          <p id="hero-intro">사람과 장소 사이에 잠시 머무는 빛을 기록합니다.</p>
           <a href="#work" class="scroll-cue">Selected works <span aria-hidden="true">↓</span></a>
         </div>
       </section>
@@ -35,10 +35,10 @@
       <section class="work" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <p>01 / Selected work</p>
-          <h2 id="work-title">빛, 공간, 그리고<br />그 사이의 사람들.</h2>
+          <h2 id="work-title"><span id="work-heading-line-1">빛, 공간, 그리고</span><br /><span id="work-heading-line-2">그 사이의 사람들.</span></h2>
         </div>
 
-        <div class="gallery">
+        <div class="gallery" id="gallery">
           <button class="work-card portrait" type="button" data-index="0" aria-label="Between Red Rocks 크게 보기">
             <span class="image-frame"><img src="public/images/01-stillness.jpg" alt="Between Red Rocks, Nevada · 2024" /><span class="view-hint">View</span></span>
             <span class="caption"><span>Between Red Rocks</span><span>Nevada · 2024</span></span>
@@ -77,21 +77,21 @@
       <section class="about" id="about" aria-labelledby="about-title">
         <div class="section-kicker">02 / About</div>
         <div class="about-copy">
-          <h2 id="about-title">관찰하고,<br />기다리고,<br /><em>기억합니다.</em></h2>
+          <h2 id="about-title"><span id="about-heading-line-1">관찰하고,</span><br /><span id="about-heading-line-2">기다리고,</span><br /><em id="about-heading-line-3">기억합니다.</em></h2>
           <div>
-            <p>서울을 기반으로 활동하는 포토그래퍼 한코비입니다. 인물과 공간이 서로의 표정을 바꾸는 순간에 관심을 두고, 절제된 색과 자연광으로 오래 남는 장면을 만듭니다.</p>
-            <p class="services">Portrait · Editorial · Travel · Architecture</p>
+            <p id="about-description">서울을 기반으로 활동하는 포토그래퍼 한코비입니다. 인물과 공간이 서로의 표정을 바꾸는 순간에 관심을 두고, 절제된 색과 자연광으로 오래 남는 장면을 만듭니다.</p>
+            <p class="services" id="services">Portrait · Editorial · Travel · Architecture</p>
           </div>
         </div>
       </section>
 
       <footer id="contact">
         <p class="section-kicker">03 / Contact</p>
-        <a class="contact-link" href="mailto:hello@kobehan.photo">Let&apos;s make<br />something <em>lasting.</em><span aria-hidden="true">↗</span></a>
+        <a class="contact-link" data-email-link href="mailto:hello@kobehan.photo"><span id="contact-line-1">Let's make</span><br /><em id="contact-line-2">something lasting.</em><span aria-hidden="true">↗</span></a>
         <div class="footer-meta">
-          <p>Seoul, Korea<br />Available worldwide</p>
-          <div><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a><a href="mailto:hello@kobehan.photo">Email ↗</a></div>
-          <p>© 2026 Kobe Han</p>
+          <p><span id="footer-location">Seoul, Korea</span><br /><span id="footer-availability">Available worldwide</span></p>
+          <div><a id="instagram-link" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a><a data-email-link href="mailto:hello@kobehan.photo">Email ↗</a></div>
+          <p id="copyright">© 2026 Kobe Han</p>
         </div>
       </footer>
     </main>
