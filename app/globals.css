@@ -432,11 +432,15 @@ footer .section-kicker {
   justify-content: center;
 }
 
-.lightbox figure img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: calc(100svh - 120px);
+.lightbox-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+}
+
+.lightbox-image img {
   object-fit: contain;
 }
 
@@ -530,7 +534,7 @@ footer .section-kicker {
   .footer-meta > p:last-child { display: none; }
   .lightbox { padding: 70px 16px 24px; }
   .lightbox figure { width: 100%; height: calc(100svh - 94px); }
-  .lightbox figure img { max-height: calc(100svh - 150px); }
+  .lightbox-image { max-height: calc(100svh - 150px); }
   .lightbox-close { top: 12px; right: 12px; }
   .lightbox-nav { top: auto; bottom: 28px; }
   .lightbox-nav.prev { left: 20px; }

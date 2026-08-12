@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import site from "../content/site.json";
 import workData from "../content/works.json";
 
-const works = workData
+const works = workData.works
   .filter((work) => work.published)
   .map((work) => ({
     ...work,
@@ -153,15 +153,16 @@ export function Portfolio() {
             <span aria-hidden="true">←</span>
           </button>
           <figure>
-            <Image
-              src={works[active].src}
-              alt={works[active].alt}
-              width={works[active].width}
-              height={works[active].height}
-              unoptimized
-              sizes="96vw"
-              priority
-            />
+            <span className="lightbox-image">
+              <Image
+                src={works[active].src}
+                alt={works[active].alt}
+                fill
+                unoptimized
+                sizes="96vw"
+                priority
+              />
+            </span>
             <figcaption>
               <span>{works[active].title}</span>
               <span>{String(active + 1).padStart(2, "0")} / {String(works.length).padStart(2, "0")}</span>

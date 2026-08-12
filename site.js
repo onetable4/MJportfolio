@@ -22,6 +22,24 @@ function imagePath(path) {
   return path.startsWith("/images/") ? `public${path}` : path;
 }
 
+function responsiveSizes(work, lightboxView = false) {
+  if (lightboxView) return "96vw";
+  return work.layout === "wide" ? "(max-width: 700px) 90vw, 92vw" : "(max-width: 700px) 86vw, 45vw";
+}
+
+function applyResponsiveSource(image, work, lightboxView = false) {
+  image.src = imagePath(work.image);
+  image.sizes = responsiveSizes(work, lightboxView);
+
+  if (Array.isArray(work.variants) && work.variants.length > 0) {
+    image.srcset = work.variants
+      .map((variant) => `${imagePath(variant.src)} ${variant.width}w`)
+      .join(", ");
+  } else {
+    image.removeAttribute("srcset");
+  }
+}
+
 function text(selector, value) {
   const element = document.querySelector(selector);
   if (element) element.textContent = value;
@@ -69,7 +87,7 @@ function renderGallery() {
     const frame = document.createElement("span");
     frame.className = "image-frame";
     const image = document.createElement("img");
-    image.src = imagePath(work.image);
+    applyResponsiveSource(image, work);
     image.alt = work.alt;
     image.loading = index < 2 ? "eager" : "lazy";
     const hint = document.createElement("span");
@@ -91,7 +109,7 @@ function renderGallery() {
 
 function renderLightbox() {
   const work = works[activeIndex];
-  lightboxImage.src = imagePath(work.image);
+  applyResponsiveSource(lightboxImage, work, true);
   lightboxImage.alt = work.alt;
   lightboxTitle.textContent = work.title;
   lightboxCount.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(works.length).padStart(2, "0")}`;
@@ -142,7 +160,7 @@ async function loadContent() {
     if (!siteResponse.ok || !worksResponse.ok) throw new Error("콘텐츠 파일을 불러오지 못했습니다.");
 
     const [site, workData] = await Promise.all([siteResponse.json(), worksResponse.json()]);
-    works = workData.filter((work) => work.published);
+    works = workData.works.filter((work) => work.published);
     renderSite(site);
     renderGallery();
   } catch (error) {

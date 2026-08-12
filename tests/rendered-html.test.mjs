@@ -42,7 +42,7 @@ test("Pages CMS content references valid portfolio images", async () => {
     readFile(new URL("../.pages.yml", import.meta.url), "utf8"),
   ]);
   const site = JSON.parse(siteText);
-  const works = JSON.parse(worksText);
+  const { works } = JSON.parse(worksText);
 
   assert.equal(site.name, "Kobe Han");
   assert.ok(Array.isArray(works) && works.length > 0);
@@ -53,7 +53,25 @@ test("Pages CMS content references valid portfolio images", async () => {
     assert.ok(work.title);
     assert.ok(["portrait", "landscape", "wide"].includes(work.layout));
     assert.equal(typeof work.published, "boolean");
+    assert.equal("width" in work, false);
+    assert.equal("height" in work, false);
     assert.match(work.image, /^\/images\//);
     await access(new URL(`../public${work.image}`, import.meta.url));
+  }
+});
+
+test("GitHub Pages build includes responsive image variants", async () => {
+  const output = JSON.parse(
+    await readFile(new URL("../_site/content/works.json", import.meta.url), "utf8"),
+  );
+
+  assert.ok(Array.isArray(output.works) && output.works.length > 0);
+  for (const work of output.works) {
+    assert.ok(work.width > 0 && work.height > 0);
+    assert.ok(Array.isArray(work.variants) && work.variants.length > 0);
+    for (const variant of work.variants) {
+      assert.match(variant.src, /^\/images\/generated\/.+\.webp$/);
+      await access(new URL(`../_site/public${variant.src}`, import.meta.url));
+    }
   }
 });

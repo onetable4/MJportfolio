@@ -12,59 +12,58 @@ content:
     type: file
     path: content/works.json
     format: json
-    list: true
     fields:
-      - name: title
-        label: 작품명
-        type: string
-        required: true
-      - name: location
-        label: 장소 또는 분류
-        type: string
-        required: true
-      - name: year
-        label: 연도
-        type: number
-        required: true
-      - name: image
-        label: 작품 이미지
-        type: image
-        required: true
-        options:
-          media: portfolio_images
-          extensions: [jpg, jpeg, png, webp]
-          rename: safe
-      - name: alt
-        label: 이미지 설명
-        type: string
-        required: true
-        description: 화면 낭독기와 검색엔진을 위한 짧고 구체적인 사진 설명입니다.
-      - name: layout
-        label: 표시 비율
-        type: select
-        required: true
-        options:
-          values:
-            - name: portrait
-              label: 세로형
-            - name: landscape
-              label: 가로형
-            - name: wide
-              label: 전체 폭
-      - name: width
-        label: 원본 너비(px)
-        type: number
-        required: true
-        description: 업로드한 이미지의 실제 픽셀 너비입니다.
-      - name: height
-        label: 원본 높이(px)
-        type: number
-        required: true
-        description: 업로드한 이미지의 실제 픽셀 높이입니다.
-      - name: published
-        label: 사이트에 공개
-        type: boolean
-        required: true
+      - name: works
+        label: 작품 목록
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{index} · {title} · {year}"
+        fields:
+          - name: title
+            label: 작품명
+            type: string
+            required: true
+          - name: location
+            label: 장소 또는 분류
+            type: string
+            required: true
+          - name: year
+            label: 연도
+            type: number
+            required: true
+          - name: image
+            label: 작품 이미지
+            type: image
+            required: true
+            description: 웹용 JPG 또는 WebP, 5MB 이하를 권장합니다. 저장 후 사이트용 크기는 자동 생성됩니다.
+            options:
+              media: portfolio_images
+              extensions: [jpg, jpeg, png, webp]
+              rename: safe
+          - name: alt
+            label: 이미지 설명
+            type: string
+            required: true
+            description: 화면 낭독기와 검색엔진을 위한 짧고 구체적인 사진 설명입니다.
+          - name: layout
+            label: 표시 비율
+            type: select
+            required: true
+            options:
+              values:
+                - name: portrait
+                  label: 세로형
+                - name: landscape
+                  label: 가로형
+                - name: wide
+                  label: 전체 폭
+          - name: published
+            label: 사이트에 공개
+            type: boolean
+            required: true
 
   - name: site
     label: 프로필 및 연락처
