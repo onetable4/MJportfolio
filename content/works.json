@@ -86,5 +86,16 @@
     "width": 1800,
     "height": 1232,
     "published": true
+  },
+  {
+    "title": "The Tower",
+    "location": "Tokyo",
+    "year": 2026,
+    "image": "/images/img5782.jpg",
+    "alt": "The Tokyo Tower",
+    "layout": "portrait",
+    "width": 1200,
+    "height": 1600,
+    "published": true
   }
 ]
